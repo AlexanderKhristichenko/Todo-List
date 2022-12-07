@@ -13,6 +13,8 @@
   --size-16: 16px;
   --size-18: 18px;
   --size-24: 24px;
+  --regular: 400;
+  --semiBold: 600;
 }
 
 * {
