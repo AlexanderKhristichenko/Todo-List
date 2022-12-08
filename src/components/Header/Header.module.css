@@ -14,13 +14,11 @@
   text-transform: uppercase;
 }
 
-.list {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+.logo a {
+  color: inherit;
 }
 
-.list p {
+.txt {
   font-size: var(--size-18);
   color: var(--primary);
   margin-left: 18px;

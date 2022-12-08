@@ -1,14 +1,19 @@
 import styles from "./Header.module.css";
 import plusCircle from "../../assets/images/PlusCircle.svg";
+import Button from "../UI/Button";
 
-const Header = () => {
+const Header = ({ isAddList }) => {
+  const clickBtnHandler = () => isAddList(true);
+
   return (
     <header className={styles.header}>
-      <h2 className={styles.logo}>TO DO | YOUR LISTS</h2>
-      <div className={styles.list}>
+      <h2 className={styles.logo}>
+        <a href="./index.html">TO DO | YOUR LISTS</a>
+      </h2>
+      <Button onCLick={clickBtnHandler}>
         <img src={plusCircle} alt="Plus Circle" />
-        <p>Add new List</p>
-      </div>
+        <p className={styles.txt}>Add new List</p>
+      </Button>
     </header>
   );
 };

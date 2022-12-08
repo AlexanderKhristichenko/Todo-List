@@ -1,0 +1,29 @@
+.card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 140px;
+  opacity: 0;
+}
+
+.promo {
+  width: 471px;
+  height: 312px;
+  background: linear-gradient(var(--dark-900), var(--dark-900)) 50% 50% /
+      calc(100% - 8px) calc(100% - 8px) no-repeat,
+    linear-gradient(
+      0deg,
+      var(--green) 0%,
+      var(--primary) 50%,
+      var(--dark-600) 100%
+    );
+  padding: 4px;
+  opacity: 0.2;
+}
+
+.txt {
+  color: var(--second-200);
+  font-size: var(--size-24);
+  text-align: center;
+  margin-top: 25px;
+}

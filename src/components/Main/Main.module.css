@@ -1,0 +1,28 @@
+.title {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 128px;
+  color: var(--second-200);
+}
+
+.img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.active {
+  animation: activeCard 0.5s linear forwards;
+}
+
+@keyframes activeCard {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
