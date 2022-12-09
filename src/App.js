@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./App.module.css";
 import Header from "./components/Header/Header";
+import List from "./components/Lists/List";
 import Main from "./components/Main/Main";
 
 const DUMMY_DATA = [];
@@ -20,9 +21,9 @@ const App = () => {
         dataList={addNameListsHandler}
       />
       {listsName.length === 0 ? (
-        <Main isRes={isNewAddList} addNewList={listsName} />
+        <Main isRes={isNewAddList} />
       ) : (
-        <p>Test</p>
+        <List addNewList={listsName} />
       )}
     </div>
   );
