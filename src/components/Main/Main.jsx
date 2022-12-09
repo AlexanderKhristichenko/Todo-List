@@ -2,7 +2,7 @@ import Card from "../UI/Card";
 import styles from "./Main.module.css";
 import addList from "../../assets/images/Illustrations-reading-side.svg";
 
-const Main = ({ isRes, addNewList }) => {
+const Main = ({ isRes }) => {
   return (
     <main className={styles.main}>
       {!isRes && (

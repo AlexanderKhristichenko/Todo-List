@@ -27,6 +27,8 @@
   font-size: var(--size-24);
   text-align: center;
   margin-top: 25px;
+  opacity: 0;
+  animation: active 0.5s linear forwards 0.3s;
 }
 
 @keyframes active {
