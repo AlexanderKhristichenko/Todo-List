@@ -1,0 +1,15 @@
+.title {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 128px;
+  color: var(--second-200);
+}
+
+.img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}

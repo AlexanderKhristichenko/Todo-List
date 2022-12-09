@@ -13,6 +13,8 @@
   --size-16: 16px;
   --size-18: 18px;
   --size-24: 24px;
+  --regular: 400;
+  --semiBold: 600;
 }
 
 * {
@@ -30,4 +32,10 @@ body {
   background-color: var(--dark-900);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
 }

@@ -1,0 +1,25 @@
+.header {
+  height: 80px;
+  margin-top: 75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid rgba(70, 39, 48, 0.8);
+}
+
+.logo {
+  color: var(--second-100);
+  font-size: var(--size-24);
+  font-weight: var(--semiBold);
+  text-transform: uppercase;
+}
+
+.logo a {
+  color: inherit;
+}
+
+.txt {
+  font-size: var(--size-18);
+  color: var(--primary);
+  margin-left: 18px;
+}
