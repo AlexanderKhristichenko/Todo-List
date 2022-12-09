@@ -13,16 +13,3 @@
   top: 50%;
   transform: translateY(-50%);
 }
-
-.active {
-  animation: activeCard 0.5s linear forwards;
-}
-
-@keyframes activeCard {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
