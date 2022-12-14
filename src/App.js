@@ -1,29 +1,40 @@
 import { useState } from "react";
 import styles from "./App.module.css";
-import Header from "./components/Header/Header";
-import List from "./components/Lists/List";
-import Main from "./components/Main/Main";
+import { List } from "./components/List/List";
+import { Main } from "./components/Main/Main";
+import { Popup } from "./components/Popup/Popup";
+import { Header } from "./components/UI/Header";
 
 const DUMMY_DATA = [];
 
 const App = () => {
-  const [isNewAddList, setIsNewAddList] = useState(false);
-  const [listsName, setListsName] = useState(DUMMY_DATA);
+  const [isOpenedPopup, setIsOpenedPopup] = useState(false);
+  const [data, setData] = useState(DUMMY_DATA);
+  const openPopupHandler = (isOpen) => {
+    setIsOpenedPopup(isOpen);
+    !isOpenedPopup
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "scroll");
+  };
 
-  const addNameListsHandler = (nameLists) =>
-    setListsName((prevListDataName) => [nameLists, ...prevListDataName]);
+  const newTodoList = (newList) => {
+    setData((prev) => [newList, ...prev]);
+  };
+
+  const deleteItem = (item) => {
+    setData(data.filter((del) => del.id !== item));
+  };
 
   return (
-    <div className={styles.container}>
-      <Header
-        isAddList={setIsNewAddList}
-        isForm={isNewAddList}
-        dataList={addNameListsHandler}
-      />
-      {listsName.length === 0 ? (
-        <Main isRes={isNewAddList} />
+    <div className={styles.wrap}>
+      {isOpenedPopup && (
+        <Popup openPopup={openPopupHandler} addInData={newTodoList} />
+      )}
+      <Header openPopup={openPopupHandler} />
+      {data.length !== 0 ? (
+        <List items={data} deleteItems={deleteItem} />
       ) : (
-        <List addNewList={listsName} />
+        <Main />
       )}
     </div>
   );
