@@ -25,7 +25,7 @@ export const List = ({ items, deleteItems }) => {
         </Button>
       </div>
       {active === item.id && (
-        <pre className={styles.description}>{item.description}</pre>
+        <p className={styles.description}>{item.description}</p>
       )}
     </li>
   ));

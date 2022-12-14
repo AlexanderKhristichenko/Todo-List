@@ -14,7 +14,7 @@ const App = () => {
     setIsOpenedPopup(isOpen);
     !isOpenedPopup
       ? (document.body.style.overflow = "hidden")
-      : (document.body.style.overflow = "scroll");
+      : (document.body.style.overflow = "auto");
   };
 
   const newTodoList = (newList) => {
