@@ -1,7 +1,7 @@
 import styles from "./List.module.css";
-import trash from "./../../assets/img/trash.svg";
 import { Button } from "../UI/Button";
 import { useState } from "react";
+import trash from "./../../assets/img/trash.svg";
 
 export const List = ({ items, deleteItems }) => {
   const [active, setActive] = useState(null);
