@@ -1,25 +1,27 @@
 import { Button } from "../UI/Button";
 import styles from "./Popup.module.css";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { createPortal } from "react-dom";
 
-export const Popup = ({ openPopup, addInData }) => {
+const Form = ({ openPopup, addInData }) => {
   const closePopupHandler = () => openPopup(false);
-  const [enteredTitle, setEnteredTitle] = useState("");
-  const [enteredDescription, setEnteredDescription] = useState("");
+  const titleRef = useRef();
+  const descriptionRef = useRef();
   const [isError, setIsError] = useState(false);
-  const titleHandler = (e) => setEnteredTitle(e.target.value);
-  const descriptionHandler = (e) => setEnteredDescription(e.target.value);
 
   const submitHandler = (e) => {
     e.preventDefault();
+
+    const enteredTitle = titleRef.current.value;
+    const enteredDescription = descriptionRef.current.value;
 
     if (
       enteredTitle.trim().length === 0 ||
       enteredDescription.trim().length === 0
     ) {
       setIsError(true);
-      setEnteredTitle("");
-      setEnteredDescription("");
+      titleRef.current.value = "";
+      descriptionRef.current.value = "";
     } else {
       const todoListData = {
         id: new Date().toISOString(),
@@ -29,8 +31,8 @@ export const Popup = ({ openPopup, addInData }) => {
 
       addInData(todoListData);
 
-      setEnteredTitle("");
-      setEnteredDescription("");
+      titleRef.current.value = "";
+      descriptionRef.current.value = "";
       openPopup(false);
     }
   };
@@ -57,8 +59,7 @@ export const Popup = ({ openPopup, addInData }) => {
             type="text"
             id="name"
             placeholder="Please enter name"
-            value={enteredTitle}
-            onChange={titleHandler}
+            ref={titleRef}
             disabled={isError && "disabled"}
           />
           <label htmlFor="body" className={styles.label}>
@@ -69,8 +70,7 @@ export const Popup = ({ openPopup, addInData }) => {
             id="body"
             placeholder="Please enter description"
             rows="10"
-            value={enteredDescription}
-            onChange={descriptionHandler}
+            ref={descriptionRef}
             disabled={isError && "disabled"}
           ></textarea>
           <div className={styles.buttons}>
@@ -81,6 +81,17 @@ export const Popup = ({ openPopup, addInData }) => {
           </div>
         </form>
       </div>
+    </>
+  );
+};
+
+export const Popup = ({ openPopup, addInData }) => {
+  return (
+    <>
+      {createPortal(
+        <Form openPopup={openPopup} addInData={addInData} />,
+        document.getElementById("modal")
+      )}
     </>
   );
 };
